@@ -28,17 +28,17 @@ Board.prototype.winner = function() {
     for(var r=1; r<side_length-1; ++r) { //adjust bounds since just looking for
     	for(var c=1; c<side_length-1; ++c) { //middle cell & avoid out of bounds
     		 
-			if(this.grid[r-1][c] === this.grid[r][c]  
-    		 		&&  this.grid[r+1][c] === this.grid[r][c]) {
+			if(this.grid[r-1][c] === this.grid[r][c]  &&  
+				this.grid[r+1][c] === this.grid[r][c]) {
     		 	return true; //win with above and below
-			} else if (this.grid[r][c-1] === this.grid[r][c]  
-    		 		&&  this.grid[r][c+1] === this.grid[r][c]) {
+			} else if (this.grid[r][c-1] === this.grid[r][c]  &&  
+						this.grid[r][c+1] === this.grid[r][c]) {
 				return true; //win with left and right
-			} else if (this.grid[r-1][c-1] === this.grid[r][c]  
-    		 		&&  this.grid[r+1][c+1] === this.grid[r][c]) {
+			} else if (this.grid[r-1][c-1] === this.grid[r][c]  &&  
+						this.grid[r+1][c+1] === this.grid[r][c]) {
 				return true; //win with above left and below right
-			} else if (this.grid[r-1][c+1] === this.grid[r][c]  
-    		 		&&  this.grid[r+1][c-1] === this.grid[r][c]) {
+			} else if (this.grid[r-1][c+1] === this.grid[r][c]  &&  
+						this.grid[r+1][c-1] === this.grid[r][c]) {
 				return true; //win with above right and below left
 			}
     	}
