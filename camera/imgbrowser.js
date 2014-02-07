@@ -1,5 +1,5 @@
-// add loading image to div
-$('#loading_img').html('<img src="" loading...');
+//Jamie Sookprasong
+//Prism Skylabs Challenge
 
 $('#next_img').click(function () {
     
@@ -7,9 +7,10 @@ $('#next_img').click(function () {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "",
+        url: "???",
         success: function (d) {
             function () {
+                //assme JSON has the image url for next image
                 $('#loading_img').html('<img src="' + d.img_url + '"><br>');
             });
         }
@@ -22,9 +23,10 @@ $('#prev_img').click(function () {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "",
+        url: "???",
         success: function (d) {
             function () {
+                //assume JSON has the image url for previous image
                 $('#loading_img').html('<img src="' + d.img_url + '"><br>');
             });
         }

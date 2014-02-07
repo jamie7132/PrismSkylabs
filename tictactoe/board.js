@@ -5,11 +5,12 @@ var Board = function(side_length) {
     // do initialization here... 
    
    //since efficiency isn't priority and clarity is, go with matrix not 1D array
-	var grid = [];
+	this.grid = [];
+    this.side_length = side_length;
 
 	//create empty board
 	for(var i=0; i<side_length; ++i) {
-	    matrix[i] = new Array(side_length);
+	    this.grid[i] = new Array(side_length);
 	}
 };
 
@@ -25,21 +26,48 @@ Board.prototype.winner = function() {
 
     //there is a winner when one occupied cell has cells on either side occupied
     	//with same symbol
-    for(var r=1; r<side_length-1; ++r) { //adjust bounds since just looking for
-    	for(var c=1; c<side_length-1; ++c) { //middle cell & avoid out of bounds
-    		 
-			if(this.grid[r-1][c] === this.grid[r][c]  &&  
+    for(var r=0; r<this.side_length; ++r) { //adjust bounds since just looking for
+    	for(var c=0; c<this.side_length; ++c) { //middle cell & avoid out of bounds
+    		 console.log(r +" "+c+" "+this.grid[r][c]);
+			if(r > 0 && r < this.side_length-1 
+                &&  this.grid[r-1][c] === this.grid[r][c]  &&  
 				this.grid[r+1][c] === this.grid[r][c]) {
-    		 	return true; //win with above and below
-			} else if (this.grid[r][c-1] === this.grid[r][c]  &&  
+                 //win with above and below
+        		 	if(this.grid[r][c] === 'X') {
+                        return 'X';
+                    } else {
+                        return 'O';
+                    }
+
+			} else if (c > 0 && c < this.side_length-1 
+                        && this.grid[r][c-1] === this.grid[r][c]  &&  
 						this.grid[r][c+1] === this.grid[r][c]) {
-				return true; //win with left and right
-			} else if (this.grid[r-1][c-1] === this.grid[r][c]  &&  
+				//win with left and right
+                if(this.grid[r][c] === 'X') {
+                        return 'X';
+                    } else {
+                        return 'O';
+                }
+			} else if (r > 0 && c > 0 && r < this.side_length-1 
+                        && c < this.side_length-1 
+                        && this.grid[r-1][c-1] === this.grid[r][c]  &&  
 						this.grid[r+1][c+1] === this.grid[r][c]) {
-				return true; //win with above left and below right
-			} else if (this.grid[r-1][c+1] === this.grid[r][c]  &&  
+				//win with above left and below right
+                if(this.grid[r][c] === 'X') {
+                        return 'X';
+                    } else {
+                        return 'O';
+                }
+			} else if (r > 0 && c > 0 && r < this.side_length-1 
+                        && c < this.side_length-1 
+                        && this.grid[r-1][c+1] === this.grid[r][c]  &&  
 						this.grid[r+1][c-1] === this.grid[r][c]) {
-				return true; //win with above right and below left
+				//win with above right and below left
+                if(this.grid[r][c] === 'X') {
+                        return 'X';
+                    } else {
+                        return 'O';
+                }
 			}
     	}
     }
@@ -65,7 +93,9 @@ function game1() {
 
     // check for a winner - X has won.
     if (board.winner()) {
-        alert('Winner!! -> ' + board.winner());
+        alert('Winner!! -> ' + board.winner());   
         return;
     }
 }
+
+game1();
