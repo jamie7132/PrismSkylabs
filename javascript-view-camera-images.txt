@@ -1,0 +1,33 @@
+Javascript - View Camera Images
+------------------------------
+
+The goal of this question is to display the images from a camera in a browser
+via a simple read-only ajax-enabled web application. Write up a web page that
+allows a user to:
+
+    - view the latest image (just a jpeg or png) from a camera
+    - move to the next or previous image from that camera
+    - switch between cameras
+
+You can assume there are a small (say 3-5) number of cameras to be displayed,
+and each camera has a potentially large number of images associated with it
+(i.e. an image was taken every 10 minutes for the last week).
+
+Design a short API to allow the browser-based client to communicate with the
+server. Document this API briefly - describe what calls the browser can make
+and supply some example responses by the server.
+
+It's up to you to choose how the user navigates around this page. However,
+there should be UI elements that clearly achieve the functionality described in
+each of three bullet points above. We're not looking for fancy design, as much
+as we are well-structured javascript, html, and css.
+
+You don't have to write up the server side of the API. Just assume it exists.
+
+Since you don't have to write up the server side of the API, it's likely your
+page won't actually function. That's ok. It should be clear it would function
+if hooked up to the appropriate backend.
+
+Bonus points: hook up your API calls to some static files on disk that mimic
+server responses, and tie it all together into a functioning page. Tar all your
+files together for submission.
